@@ -1,0 +1,12 @@
+/* Agregar estilo si lo deseas */
+body {
+    font-family: Arial, sans-serif;
+}
+
+h3 {
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    text-align: center;
+}
