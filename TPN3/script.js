@@ -12,7 +12,7 @@ fetch('https://apidemo.geoeducacion.com.ar/api/testing/encuesta/1')
                 const fila = tablaPoblacion.insertRow();
                 fila.innerHTML = `
                     <td>${p.nombre} ${p.apellido}</td>
-                    <td>${p.Edad}</td>
+                    <td>${p.Edad}</td> <!-- Asegúrate de usar p.Edad -->
                     <td>${p.curso}</td>
                     <td>${p.nivel}</td>
                 `;
@@ -66,7 +66,15 @@ fetch('https://apidemo.geoeducacion.com.ar/api/testing/encuesta/1')
             }
 
             // 🟦 Estadísticos de Edad
-            const edades = personas.map(p => Number(p.Edad)).filter(e => !isNaN(e));
+            const edades = personas
+                .map(p => {
+                    const edad = parseInt(p.Edad); // Asegurarnos de que estamos extrayendo correctamente la edad
+                    console.log(`Edad de ${p.nombre} ${p.apellido}: ${edad}`); // Imprime cada edad para depuración
+                    return edad;
+                })
+                .filter(e => !isNaN(e));  // Filtramos los valores no numéricos
+
+            console.log("Edades filtradas: ", edades);  // Imprime todas las edades filtradas
 
             function median(array) {
                 const sorted = [...array].sort((a, b) => a - b);
@@ -92,22 +100,42 @@ fetch('https://apidemo.geoeducacion.com.ar/api/testing/encuesta/1')
 
             const estadisticos = {
                 media: (edades.reduce((a, b) => a + b, 0) / edades.length).toFixed(2),
-                mediana: median(edades),
-                maximo: Math.max(...edades),
+                mediana: median(edades).toFixed(2),
                 minimo: Math.min(...edades),
+                maximo: Math.max(...edades),
                 primerCuartil: cuartil(edades, 0.25).toFixed(2),
                 segundoCuartil: cuartil(edades, 0.5).toFixed(2),
                 desviacionEstandar: desviacionEstandar(edades).toFixed(2)
             };
 
+            const nombresEstadisticos = {
+                media: 'Media',
+                mediana: 'Mediana',
+                minimo: 'Valor Mínimo',
+                maximo: 'Valor Máximo',
+                primerCuartil: 'Primer Cuartil (Q1)',
+                segundoCuartil: 'Segundo Cuartil (Q2)',
+                desviacionEstandar: 'Desvío Estándar'
+            };
+
+            const ordenEstadisticos = [
+                'media',
+                'mediana',
+                'minimo',
+                'maximo',
+                'primerCuartil',
+                'segundoCuartil',
+                'desviacionEstandar'
+            ];
+
             const tablaEstadisticos = document.getElementById('tabla-estadisticos').getElementsByTagName('tbody')[0];
-            for (const [clave, valor] of Object.entries(estadisticos)) {
+            ordenEstadisticos.forEach(clave => {
                 const fila = tablaEstadisticos.insertRow();
                 fila.innerHTML = `
-                    <td>${clave}</td>
-                    <td>${valor}</td>
+                    <td>${nombresEstadisticos[clave]}</td>
+                    <td>${estadisticos[clave]}</td>
                 `;
-            }
+            });
 
         } else {
             console.error('La propiedad "data" no es un array válido:', data);
