@@ -3,29 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto - Encuesta</title>
+    <title>Proyecto - Encuesta</title> <!-- Titulo de la pagina -->
     <!-- Incluimos el CSS de Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"> <!-- Nuestro CSS personalizado -->
+    <link rel="stylesheet" href="style.css"> <!-- Mi archivo CSS -->
 </head>
 <body>
     
 <div class="container mt-5">
-    <!-- Componente de Tabs de Bootstrap -->
+    <!-- Componentes de Tabs con Bootstrap -->
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
             <a class="nav-link active" id="poblacion-tab" data-bs-toggle="tab" href="#poblacion" role="tab" aria-controls="poblacion" aria-selected="true">Población Completa</a>
-        </li>
+        </li> <!-- Tab de poblacion -->
         <li class="nav-item" role="presentation">
             <a class="nav-link" id="tablas-frecuencia-tab" data-bs-toggle="tab" href="#tablas-frecuencia" role="tab" aria-controls="tablas-frecuencia" aria-selected="false">Tablas de Frecuencia</a>
-        </li>
+        </li> <!-- Tab de tablas de frecuencia -->
         <li class="nav-item" role="presentation">
             <a class="nav-link" id="estadisticos-tab" data-bs-toggle="tab" href="#estadisticos" role="tab" aria-controls="estadisticos" aria-selected="false">Estadísticos</a>
-        </li>
+        </li> <!-- Tab de estadisticos -->
     </ul>
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="poblacion" role="tabpanel" aria-labelledby="poblacion-tab">
-            <!-- Aquí va la tabla de Población Completa -->
+            <!-- Tabla de Población Completa -->
             <table class="table" id="tabla-poblacion">
                 <thead>
                     <tr>
@@ -36,12 +36,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Aquí se van a agregar los datos con JavaScript -->
+                    <!-- Datos con JavaScript -->
                 </tbody>
             </table>
         </div>
         <div class="tab-pane fade" id="tablas-frecuencia" role="tabpanel" aria-labelledby="tablas-frecuencia-tab">
-            <!-- Aquí van las tablas de frecuencia -->
+            <!-- Tablas de frecuencia -->
             <h3>Niveles Educativos</h3>
             <table class="table" id="tabla-frecuencia-niveles">
                 <thead>
@@ -53,7 +53,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Aquí se van a agregar los datos con JavaScript -->
+                    <!-- Datos con JavaScript -->
                 </tbody>
             </table>
             <h3>Cursos del Nivel Secundario</h3>
@@ -67,12 +67,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Aquí se van a agregar los datos con JavaScript -->
+                    <!-- Datos con JavaScript -->
                 </tbody>
             </table>
         </div>
         <div class="tab-pane fade" id="estadisticos" role="tabpanel" aria-labelledby="estadisticos-tab">
-            <!-- Aquí va la tabla de Estadísticos -->
+            <!-- Tabla estadisticos con sus resultados -->
             <table class="table" id="tabla-estadisticos">
                 <thead>
                     <tr>
@@ -81,17 +81,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Aquí se van a agregar los datos con JavaScript -->
+                    <!-- Se agregan los datos con JavaScript -->
                 </tbody>
             </table>
         </div>
     </div>
 </div>
 
-<!-- Scripts de Bootstrap y JS personalizado -->
+<!-- Scripts del Bootstrap y de mi JS personalizado -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js"></script> <!-- Nuestro JS -->
+<script src="script.js"></script> <!-- Vinculo mi archivo Js con mi html -->
 </body>
 </html>
-
 <script>
